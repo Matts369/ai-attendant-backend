@@ -1,0 +1,8 @@
+{
+  "name": "ai-attendant-backend",
+  "version": "1.0.0",
+  "description": "Handles Twilio and AI logic.",
+  "dependencies": {
+    "twilio": "^5.0.4"
+  }
+}
