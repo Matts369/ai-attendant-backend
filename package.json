@@ -4,6 +4,7 @@
   "description": "Handles Twilio and AI logic.",
   "type": "module",
   "dependencies": {
-    "twilio": "^5.0.4"
+    "twilio": "^5.0.4",
+    "@google/generative-ai": "^0.14.1"
   }
 }
