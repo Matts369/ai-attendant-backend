@@ -25,8 +25,8 @@ export default async function handler(request, response) {
 
   } catch (error) {
     // If something goes wrong, we'll write down the reason.
-    console.error("The super-brain had a problem!", error);
-    twiml.say('Darn! I had a problem talking to the gemini-pro brain.');
+    console.error("The Gemini Api call failed!", error);
+    twiml.say('Sorry, I ran into an issue trying to contact the Ai model.');
   }
 
   // This sends our final answer back to the phone.
