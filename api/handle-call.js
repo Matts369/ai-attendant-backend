@@ -1,29 +1,32 @@
 import twilio from 'twilio';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
-// This is our brain waking up the Gemini tool and showing its library card!
+// Get ready to use the super-brain by showing it your library card.
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export default async function handler(request, response) {
 
-  // We are telling our brain to get ready to give an answer to the phone.
+  // Get ready to give an answer to the phone.
   const VoiceResponse = twilio.twiml.VoiceResponse;
   const twiml = new VoiceResponse();
 
   try {
-    // This is our brain asking the super-brain its first question!
-    console.log("Asking the super-brain a question...");
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
-    await model.generateContent("Tell me a fun fact about space.");
-    console.log("The super-brain answered!");
+    // We are now asking for the super-reliable "gemini-pro" book!
+    console.log("Asking the super-brain a question using the gemini-pro model...");
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    
+    const result = await model.generateContent("Tell me a fun fact about the ocean.");
+    const textResponse = result.response.text();
+    
+    console.log("The super-brain answered:", textResponse);
 
-    // For today, we will just say a simple message to prove it didn't crash.
-    twiml.say('I just successfully asked the super brain a question!');
+    // If it works, we'll hear the real answer!
+    twiml.say(textResponse);
 
   } catch (error) {
-    // If something goes wrong, we'll say an error message.
+    // If something goes wrong, we'll write down the reason.
     console.error("The super-brain had a problem!", error);
-    twiml.say('Oops! I had a little trouble talking to the super brain.');
+    twiml.say('Darn! I had a problem talking to the gemini-pro brain.');
   }
 
   // This sends our final answer back to the phone.
