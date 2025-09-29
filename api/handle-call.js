@@ -13,7 +13,7 @@ export default async function handler(request, response) {
   try {
     // This is our brain asking the super-brain its first question!
     console.log("Asking the super-brain a question...");
-    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+    const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash-latest" });
     await model.generateContent("Tell me a fun fact about space.");
     console.log("The super-brain answered!");
 
