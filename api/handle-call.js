@@ -31,4 +31,3 @@ export default async function handler(request, response) {
   response.setHeader('Content-Type', 'text/xml');
   response.status(200).send(twiml.toString());
 }
-gemini-2.5-flash
